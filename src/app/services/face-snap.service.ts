@@ -86,18 +86,25 @@ export class FaceSnapService {
     
     }
     ];
-
+    getFaceSnapById(facesnapID: number ): FaceSnap{
+        const ID =this.faceSnaps.find(FaceSnap=>FaceSnap.id ===facesnapID)
+        if(!ID){
+            throw new Error('introuvable');
+        }
+        else
+        return ID;
+        
+    }
+    Snap( ID: number, TypeSnap: 'snap' | 'unsnap' ): void{
+        const snap =this.getFaceSnapById(ID);
+        if(TypeSnap ==='snap')
+            snap.snaps++;
+            else
+            snap.snaps--;
+        
+    }
 public getAllSnaps() :FaceSnap[]{
     return this.faceSnaps;
 }
 
-public snapFaceSnapById(faceSnapId: number):void 
-{
-    const facesnapR = this.faceSnaps.find(FaceSnap => FaceSnap.id === faceSnapId );
-    if(facesnapR)
-    facesnapR.snaps++;
-    else
-    throw new Error('introuvable');
-    
-}
 }
