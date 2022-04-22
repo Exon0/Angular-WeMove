@@ -1,16 +1,11 @@
 
 <div  class="face-snap-card" [ngClass]="{ snapped: buttonText==='Impossible'}">
-  <p>{{45854854.325548 | number:'1.0-1'}}</p>
-  <p>{{0.3255 | percent:'1.0-1'}}</p>
-  <p>{{320.57 | currency:'EUR'}}</p>
+  
 
 
     <h2>{{ facesnap.title | titlecase }}</h2>
     <p>Mis en ligne le {{ facesnap.createDate | date: 'dd MMMM yyyy'}}</p>
-    <img [src]="facesnap.imageUrl" [alt]="title">
     <p>{{ facesnap.description }}</p>
-    <p *ngIf="facesnap.location">Location : {{facesnap.location}}</p>
-    <p [ngStyle]="{ color:'rgb(0,'+facesnap.snaps*200+',0)'}">🤌 {{ facesnap.snaps }}</p>
-    <button (click)="onAddSnap()">{{buttonText}}</button>
-    <button *ngIf="facesnap.opt" (click)="onMore()">{{facesnap.opt}}</button>
+    <button (click)="onViewSFaceSnap()">More</button>
+  
   </div>

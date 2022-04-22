@@ -1,0 +1,14 @@
+
+<div  class="face-snap-card" [ngClass]="{ snapped: buttonText==='Impossible'}">
+  
+
+<button (click)="onRetour()" style="float:right;background-color:bisque">back</button>
+    <h2>{{ facesnap.title | titlecase }}</h2>
+    <p>Mis en ligne le {{ facesnap.createDate | date: 'dd MMMM yyyy'}}</p>
+    <img [src]="facesnap.imageUrl" [alt]="facesnap.title">
+    <p>{{ facesnap.description }}</p>
+    <p *ngIf="facesnap.location">Location : {{facesnap.location}}</p>
+    <p [ngStyle]="{ color:'rgb(0,'+facesnap.snaps*200+',0)'}">🤌 {{ facesnap.snaps }}</p>
+    <button (click)="onAddSnap()">{{buttonText}}</button>
+    <button *ngIf="facesnap.opt" (click)="onMore()">{{facesnap.opt}}</button>
+  </div>
